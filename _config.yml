@@ -1,10 +1,9 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            Hyde
@@ -18,6 +17,9 @@ author:
   url:            https://twitter.com/mdo
 
 paginate:         5
+
+# plugins
+plugins: [jekyll-paginate, jekyll-gist, jekyll-sitemap, jekyll-seo-tag]
 
 # Custom vars
 version:          2.1.0
