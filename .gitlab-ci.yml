@@ -3,6 +3,7 @@ default:
   before_script:
     - apt-get update -qy
     - apt-get install -y lftp
+    - apt-get install -y tzdata
     - bundle config set path '.vendor'
     - bundle install
 
