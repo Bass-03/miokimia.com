@@ -25,14 +25,6 @@ build:
     - master
   
 deploy:
-  stage: deploy
-  script:
-    - set ftp:list-options -a
-    - lftp -e "set ftp:list-options -a; open ftp.stackcp.com; user $FTP_U $FTP_P; mirror --reverse --verbose --delete _site/ /; bye"
-  only:
-    - master_ftp
-
-deploy_scp:
   stage: deploy-scp
   script:
     - eval $(ssh-agent -s)
