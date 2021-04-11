@@ -1,0 +1,32 @@
+default:
+  image: ruby:2.7.2
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y lftp
+    - bundle install
+
+cache:
+  paths:
+    - .vendor/
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script: 
+    - bundle exec jekyll b -d _site
+  artifacts:
+    paths:
+      - _site
+  only:
+    - master
+  
+deploy:
+  stage: deploy
+  script:
+    - lftp -e "open ftp.stackcp.com; user $FTP_U $FTP_P; mirror -X .* -X .*/ --reverse --verbose --delete _site/ /; bye"
+  only:
+    - master
+
