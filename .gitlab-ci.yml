@@ -34,6 +34,6 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - scp -o 'StrictHostKeyChecking no' -r _site miokimia.com@ssh.stackcp.com:/home/sites/14b/e/e8334152a8/public_html
+    - scp -o 'StrictHostKeyChecking no' -r _site/. miokimia.com@ssh.stackcp.com:/home/sites/14b/e/e8334152a8/public_html
   only: 
     - master
