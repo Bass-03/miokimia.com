@@ -25,5 +25,9 @@ plugins: [jekyll-gist, jekyll-sitemap, jekyll-seo-tag]
 # Custom vars
 version:          2.1.0
 
-github:
-  repo:           https://gitlab.com/mundo03/miokimia.com
+git:
+  lab:           https://gitlab.com/mundo03/miokimia.com
+  hub:           https://github.com/mundo03/miokimia.com
+
+social:
+  linkedin:       https://www.linkedin.com/in/edmundosanchez/

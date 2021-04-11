@@ -10,9 +10,21 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="{{ /about }}">About</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <a class="sidebar-nav-item" href="{{ /contact }}">Contact</a>
+      <a class="sidebar-nav-item" href="/categories">Categories</a>
+      <ul>
+      {% assign categories_list = site.categories %}
+        {% for category in categories_list %}
+          <li><a href="/categories#{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a></li>
+        {% endfor %}
+      {% assign categories_list = nil %}
+      </ul>
+      <a class="sidebar-nav-item" href="/about">About</a>
+      <a class="sidebar-nav-item" href="/contact">Contact</a>
+      <!-- Add font awesome icons -->
+      <a class="fa fa-gitlab sidebar-nav-item sidebar-nav-icon" href="{{ site.git.lab }}" target="_blank"></a>
+      <a class="fa fa-github sidebar-nav-item sidebar-nav-icon" href="{{ site.git.hub }}" target="_blank"></a>
+      <a class="fa fa-linkedin sidebar-nav-item sidebar-nav-icon" href="{{ site.social.linkedin }}" target="_blank"></a>
+      <a class="fa fa-rss sidebar-nav-item sidebar-nav-icon" href="/atom.xml" target="_blank"></a>
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
