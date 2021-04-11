@@ -8,6 +8,7 @@ default:
 cache:
   paths:
     - .vendor/
+    - vendor/
 
 stages:
   - build
@@ -26,7 +27,18 @@ build:
 deploy:
   stage: deploy
   script:
-    - lftp -e "open ftp.stackcp.com; user $FTP_U $FTP_P; mirror -X .* -X .*/ --reverse --verbose --delete _site/ /; bye"
+    - set ftp:list-options -a
+    - lftp -e "set ftp:list-options -a; open ftp.stackcp.com; user $FTP_U $FTP_P; mirror --reverse --verbose --delete _site/ /; bye"
   only:
-    - master
+    - master_ftp
 
+deploy_scp:
+  stage: deploy-scp
+  script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - scp -r _site miokimia.com@ssh.stackcp.com:/home/sites/14b/e/e8334152a8/public_html
+  only: 
+    - master
