@@ -3,6 +3,7 @@ default:
   before_script:
     - apt-get update -qy
     - apt-get install -y lftp
+    - bundle config set path '.vendor'
     - bundle install
 
 cache:
