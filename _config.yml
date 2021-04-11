@@ -6,23 +6,24 @@ highlighter:      rouge
 permalink:        pretty
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            miokimia
+tagline:          'A Personal Blog and learning notes'
+description:      'myokymia: An involuntary spontaneous quivering of part of a muscle, insufficient to move a joint.'
+url:              http://miokimia.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Mundo'
+  url:            https://miokimia.com
 
-paginate:         5
+include: 
+  - _pages
 
 # plugins
-plugins: [jekyll-paginate, jekyll-gist, jekyll-sitemap, jekyll-seo-tag]
+plugins: [jekyll-gist, jekyll-sitemap, jekyll-seo-tag]
 
 # Custom vars
 version:          2.1.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://gitlab.com/mundo03/miokimia.com

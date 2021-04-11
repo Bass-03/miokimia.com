@@ -3,7 +3,7 @@ layout: post
 title: El Trabajo Manual es un Bug.
 date: 2020-01-01
 summary: Siempre automatiza
-category: productividad
+category: Productividad
 Tags: productividad
 ---
 
